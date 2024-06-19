@@ -52,7 +52,7 @@ jobs:
           fetch-depth: 0
       - name: Run Checkton
         id: checkton
-        uses: chmeliik/checkton@main
+        uses: chmeliik/checkton@v0.1.2
         with:
           fail-on-findings: false
       - name: Upload SARIF File
