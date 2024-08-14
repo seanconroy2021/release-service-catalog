@@ -1,0 +1,279 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "fbc": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "string",
+          "description": "The internal pipline name to handle requests e.g. iib"
+        },
+        "fbcPublishingCredentials": {
+          "type": "string",
+          "description": ""
+        },
+        "buildTags": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string"
+          }
+        },
+        "addArches": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hotfix": {
+          "type": "boolean",
+          "description": "Indicates if the build is a hotfix"
+        },
+        "preGA": {
+          "type": "boolean",
+          "description": "Indicates if the build is a preGA"
+        },
+        "stagedIndex": {
+          "type": "boolean",
+          "description": "Indicates if the build is a staged index"
+        },
+        "productName": {
+          "type": "string",
+          "description": "The product name e.g. Red Hat Product "
+        },
+        "productVersion": {
+          "type": "string",
+          "description": "The product version e.g v1.0.0"
+        },
+        "buildTimeoutSeconds": {
+          "type": "integer",
+          "description": "The build timeout seconds e.g. 1500"
+        },
+        "requestTimeoutSeconds": {
+          "type": "integer",
+          "description": "The requested timeout seconds e.g. 1500"
+        },
+        "timestampFormat": {
+          "type": "string",
+          "description": ""
+        },
+        "issueId": {
+          "type": "string",
+          "description": "The issue ID e.g. bz123456"
+        },
+        "allowedPackages": {
+          "type": "array",
+          "description": "The allowed packages e.g. ['example-package-1'], ['example-package-2'] ",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fromIndex": {
+          "type": "string",
+          "description": "The source index image e.g. registry-proxy.engineering.redhat.com/rh-osbs/iib-preview-rhtap:v4.09  "
+        },
+        "targetIndex": {
+          "type": "string",
+          "description": "The index image e.g. quay.io/redhat/redhat----preview-operator-index:v4.10 "
+        },
+        "binaryImage": {
+          "type": "string",
+          "description": "The OCP binary image to be baked into the index image e.g. registry.redhat.io/openshift4/ose-operator-registry:v4.11"
+        },
+        "pipelineImage": {
+          "type": "string",
+          "description": ""
+        },
+        "configMapName": {
+          "type": "string",
+          "description": "The configmap that exists on the cluster"
+        }
+      }
+    },
+    "releaseNotes": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "integer",
+          "description": "The product ID e.g 321"
+        },
+        "product_name": {
+          "type": "string",
+          "description": "The product name e.g. Red Hat Product"
+        },
+        "product_version": {
+          "type": "string",
+          "description": "The product version e.g v1.0.0",
+          "pattern": "^(fbc|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*) ([Aa]lpha|[Bb]eta|fast|tech preview)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*) ([Aa]lpha|[Bb]eta|fast|tech preview))$"
+        },
+        "product_stream": {
+          "type": "string",
+          "description": "The product stream e.g. RHEL-tp1"
+        },
+        "cpe": {
+          "type": "string",
+          "description": "The product CPE ID e.g. cpe:/a:example:openstack:el8"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["RHEA", "RHBA", "RHSA"],
+          "description": "Type advisory type e.g. RHSA"
+        },
+        "synopsis": {
+          "type": "string",
+          "description": "The advisory synopsis e.g. my advisory synopsis"
+        },
+        "topic": {
+          "type": "string",
+          "description": "The advisory topic e.g. my advisory topic"
+        },
+        "description": {
+          "type": "string",
+          "description": "The advisory description e.g. This advisory is for security fixes to my product"
+        },
+        "solution": {
+          "type": "string",
+          "description": "The advisory solution e.g. For details on how to apply this update, see docs.com"
+        },
+        "reference": {
+          "type": "array",
+          "description": "The advisory references e.g. https://access.redhat.com/security/updates/classification & https://docs.redhat.com/some/example/release-notes ",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sign": {
+      "type": "object",
+      "properties": {
+        "cosignSecretName": {
+          "type": "string",
+          "description": "Name of secret which contains AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and SIGN_KEY"
+        },
+        "request": {
+          "type": "string",
+          "description": "The signing pipeline name to handle the request"
+        },
+        "configMapName": {
+          "type": "string",
+          "description": "The configmap that exists on the cluster for signing your images e.g. hacbs-signing-pipeline-config-redhatbeta2"
+        },
+        "pipelineImage": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "github": {
+      "type": "object",
+      "properties": {
+        "githubSecret": {
+          "type": "string",
+          "description": "The secret used to authenticate GitHub via the the GitHub token"
+        }
+      }
+    },
+    "pyxis": {
+      "type": "object",
+      "properties": {
+        "secret": {
+          "type": "string",
+          "description": "The secret used to authenticate Pyxis e.g. example-collect-pyxis-params-cert"
+        },
+        "server": {
+          "enum": [
+            "stage",
+            "production",
+            "production-internal",
+            "stage-internal",
+            "none"
+          ],
+          "description": "The Pyxis server being used e.g. production-internal"
+        },
+        "skipRepoPublishing": {
+          "type": "boolean",
+          "description": "Skip repo publishing"
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "containerImage": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "slack": {
+      "type": "object",
+      "properties": {
+        "slack-notification-secret": {
+          "type": "string",
+          "description": "The secret key for slack notifications e.g. example-team-slack-webhook-notification-secret"
+        },
+        "slack-webhook-notification-secret-keyname": {
+          "type": "string",
+          "description": "The key name for the slack webhook notification secret e.g. release"
+        }
+      }
+    },
+    "infra-deployment-update-script": {
+      "type": "string",
+      "description": "A script that can alter files before a PR is created"
+    },
+    "mapping": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cdn": {
+      "type": "object",
+      "properties": {
+        "env": {
+          "type": "string",
+          "enum": ["qa", "stage", "production"],
+          "description": "The environment for the CDN configuration e.g. qa"
+        }
+      }
+    },
+    "advisory": {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "type": "string",
+          "description": ""
+        },
+        "spec": {
+          "type": "object",
+          "description": ""
+        }
+      }
+    }
+  }
+}
