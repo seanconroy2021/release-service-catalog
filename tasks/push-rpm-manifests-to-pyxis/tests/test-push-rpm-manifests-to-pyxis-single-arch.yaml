@@ -19,7 +19,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils:4fc4e746955ed7b6d43f7a0e327b7f573980fd6d
             script: |
               #!/usr/bin/env sh
               set -eux
@@ -34,7 +34,7 @@ spec:
                         "arch": "amd64",
                         "imageId": "myImageID1",
                         "digest": "mydigest1",
-                        "arch_digest": "abcdefg",
+                        "arch_digest": "mydigest1",
                         "os": "linux"
                       }
                     ]
@@ -46,7 +46,7 @@ spec:
                         "arch": "amd64",
                         "imageId": "myImageID3",
                         "digest": "mydigest2",
-                        "arch_digest": "abcdefg",
+                        "arch_digest": "mydigest2",
                         "os": "linux"
                       }
                     ]
@@ -78,7 +78,7 @@ spec:
           - name: data
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils:4fc4e746955ed7b6d43f7a0e327b7f573980fd6d
             script: |
               #!/usr/bin/env sh
               set -eux

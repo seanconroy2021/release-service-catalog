@@ -19,7 +19,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils:4fc4e746955ed7b6d43f7a0e327b7f573980fd6d
             script: |
               #!/usr/bin/env sh
               set -eux
@@ -34,7 +34,7 @@ spec:
                         "arch": "amd64",
                         "imageId": "myImageID1Parallel",
                         "digest": "mydigest2",
-                        "arch_digest": "abcdefg",
+                        "arch_digest": "mydigest2",
                         "os": "linux"
                       }
                     ]
@@ -46,7 +46,7 @@ spec:
                         "arch": "ppc64le",
                         "imageId": "myImageID2Parallel",
                         "digest": "mydigest2",
-                        "arch_digest": "deadbeef",
+                        "arch_digest": "mydigest2",
                         "os": "linux"
                       }
                     ]
@@ -58,7 +58,7 @@ spec:
                         "arch": "amd64",
                         "imageId": "myImageID3Parallel",
                         "digest": "mydigest3",
-                        "arch_digest": "abcdefg",
+                        "arch_digest": "mydigest3",
                         "os": "linux"
                       }
                     ]
@@ -70,7 +70,7 @@ spec:
                         "arch": "ppc64le",
                         "imageId": "myImageID4Parallel",
                         "digest": "mydigest4",
-                        "arch_digest": "deadbeef",
+                        "arch_digest": "mydigest4",
                         "os": "linux"
                       }
                     ]
@@ -82,7 +82,7 @@ spec:
                         "arch": "amd64",
                         "imageId": "myImageID5Parallel",
                         "digest": "mydigest5",
-                        "arch_digest": "abcdefg",
+                        "arch_digest": "mydigest5",
                         "os": "linux"
                       }
                     ]
@@ -116,7 +116,7 @@ spec:
           - name: data
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils:4fc4e746955ed7b6d43f7a0e327b7f573980fd6d
             script: |
               #!/usr/bin/env sh
               set -eux

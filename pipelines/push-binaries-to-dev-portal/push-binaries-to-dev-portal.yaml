@@ -4,7 +4,7 @@ kind: Pipeline
 metadata:
   name: push-binaries-to-dev-portal
   labels:
-    app.kubernetes.io/version: "0.2.3"
+    app.kubernetes.io/version: "1.0.0"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
     tekton.dev/tags: release
@@ -31,10 +31,6 @@ spec:
     - name: enterpriseContractPolicy
       type: string
       description: JSON representation of the EnterpriseContractPolicy
-    - name: enterpriseContractPublicKey
-      type: string
-      description: Public key to use for validation by the enterprise contract
-      default: k8s://openshift-pipelines/public-key
     - name: enterpriseContractExtraRuleData
       type: string
       description: |
@@ -44,7 +40,7 @@ spec:
     - name: enterpriseContractTimeout
       type: string
       description: Timeout setting for `ec validate`
-      default: 10m0s
+      default: 40m0s
     - name: postCleanUp
       type: string
       description: Cleans up workspace after finishing executing the pipeline
@@ -83,6 +79,8 @@ spec:
           value: $(params.releaseServiceConfig)
         - name: snapshot
           value: $(params.snapshot)
+        - name: requireInternalServices
+          value: "false"
     - name: collect-data
       taskRef:
         resolver: "git"
@@ -132,8 +130,6 @@ spec:
           value: "1"
         - name: IGNORE_REKOR
           value: "true"
-        - name: PUBLIC_KEY
-          value: $(params.enterpriseContractPublicKey)
         - name: EXTRA_RULE_DATA
           value: $(params.enterpriseContractExtraRuleData)
         - name: TIMEOUT
