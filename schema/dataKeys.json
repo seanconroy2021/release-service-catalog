@@ -420,6 +420,10 @@
             "public": {
               "type": "boolean",
               "description": "Indicates if the target repositories should be made public"
+            },
+            "timestampFormat": {
+              "type": "string",
+              "description": "The timestamp format which defaults to %s e.g. %Y-%m-%d"
             }
           }
         },

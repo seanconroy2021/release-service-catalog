@@ -39,7 +39,7 @@ spec:
                         "source": "issues.example.com"
                       },
                       {
-                        "id": 1234567,
+                        "id": RHOSP-12341,
                         "source": "bugzilla.example.com"
                       }
                     ]
@@ -87,6 +87,7 @@ spec:
           value:
             - releaseNotes
             - unsupported
+            - randomSystem
       workspaces:
         - name: data
           workspace: tests-workspace
