@@ -39,7 +39,7 @@ spec:
                         "source": "issues.example.com"
                       },
                       {
-                        "id": RHOSP-12341,
+                        "id": "12341",
                         "source": "bugzilla.example.com"
                       }
                     ]

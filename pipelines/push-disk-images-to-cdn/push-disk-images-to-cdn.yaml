@@ -192,7 +192,7 @@ spec:
         - name: dataPath
           value: "$(tasks.collect-data.results.data)"
         - name: schema
-          value: https://raw.githubusercontent.com/konflux-ci/release-service-catalog/refs/heads/production/schema/dataKeys.json
+          value: https://raw.githubusercontent.com/seanconroy2021/release-service-catalog/refs/heads/RELEASE-987/schema/dataKeys.json
         - name: systems
           value:
             - cdn

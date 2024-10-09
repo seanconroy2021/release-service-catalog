@@ -43,8 +43,7 @@
         },
         "productName": {
           "type": "string",
-          "description": "The product name e.g. exampleproduct ",
-          "pattern": "^[a-z]+$"
+          "description": "The product name e.g. exampleproduct "
         },
         "productVersion": {
           "type": "string",
@@ -96,7 +95,7 @@
       "additionalProperties": false,
       "properties": {
         "product_id": {
-          "type": "integer",
+          "type": "string",
           "description": "The product ID e.g 321"
         },
         "product_name": {
@@ -105,8 +104,7 @@
         },
         "product_version": {
           "type": "string",
-          "description": "The product version e.g v1.0.0",
-          "pattern": "^(fbc|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*) ([Aa]lpha|[Bb]eta|fast|tech preview)|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*) ([Aa]lpha|[Bb]eta|fast|tech preview))$"
+          "description": "The product version e.g v1.0.0"
         },
         "product_stream": {
           "type": "string",
@@ -319,7 +317,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "additionalProperties": false,
+            "additionalProperties": true,
             "properties": {
               "name": {
                 "type": "string",

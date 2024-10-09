@@ -18,7 +18,7 @@ spec:
       type: string
     - name: schema 
       description: The URL to the schema to validate the data against
-      default: https://raw.githubusercontent.com/konflux-ci/release-service-catalog/refs/heads/production/schema/dataKeys.json
+      default: https://raw.githubusercontent.com/seanconroy2021/release-service-catalog/refs/heads/RELEASE-987/schema/dataKeys.json
       type: string
     - name: systems
       description: The systems to check that all data keys are present for
@@ -36,45 +36,58 @@ spec:
         #!/usr/bin/env bash
         set -ex
 
-        if [ ! -f "/workspace/data/$(params.dataPath)" ]; then
-            echo "Data JSON file not found: /workspace/data/$(params.dataPath)"
+        # Need "content.images", since this is nested key we need to check for it.
+
+        KEYS_JSON='{
+            "releaseNotes": [
+                "product_id",
+                "product_name",
+                "product_version",
+                "product_stream",
+                "cpe",
+                "type",
+                "synopsis",
+                "topic",
+                "description",
+                "solution",
+                "references"
+            ],
+            "cdn": [
+                "env"
+            ]
+        }'
+
+        if [ ! -f "$(workspaces.data.path)/$(params.dataPath)" ] ; then
+            echo "No data JSON was provided."
             exit 1
         fi
 
-        if ! curl -s "$(params.schema)" -o /tmp/schema.json; then
-            echo "Error: Failed to fetch schema from $(params.schema)"
-            exit 1
-        fi
-
-        if ! jq empty /tmp/schema.json; then
-            echo "Error: Invalid JSON schema in /tmp/schema.json"
+        if ! curl -s --fail-with-body "$(params.schema)" -o /tmp/schema.json ; then
+            echo "Failed to fetch schema from $(params.schema)"
+            cat /tmp/schema.json
             exit 1
         fi
 
         RC=0
-        for system in "$@"; do
-          echo "Checking if system $system is supported"
-          if [[ $(jq -r ".properties | has(\"$system\")" /tmp/schema.json) != true ]]; then
-              echo "Unsupported system value: $system"
+        for SYSTEM in "$@" ; do
+          if [[ $(jq -r ".$SYSTEM" <<< "$KEYS_JSON") == null ]] ; then
+              echo "Unsupported system value: $SYSTEM"
               RC=1
-          fi
+        fi
         done
 
-        if [ $RC -ne 0 ]; then
+        if [ $RC -ne 0 ] ; then
             exit 1
         fi
-
-        echo "Adding required fields to root for system: $*"
-        jq --argjson systems "$(printf '%s\n' "$@" | jq -R . | jq -s .)" \
-          '.required = $systems' /tmp/schema.json > /tmp/schemaTmp.json
-        mv /tmp/schemaTmp.json /tmp/schema.json
-
+      
         for system in "$@"; do
-          echo "Adding required fields to properties for system: $system"
-          jq --arg system "$system" \
-            '(.properties[$system].required) = (.properties[$system].properties | keys)' \
+          REQUIRED_KEYS=$(echo "$KEYS_JSON" | jq -c --arg system "$system" '.[$system]')
+
+          jq --arg system "$system" --argjson requiredKeys "$REQUIRED_KEYS" \
+            '(.properties[$system].required) = $requiredKeys' \
             /tmp/schema.json > /tmp/schemaTmp.json
+
           mv /tmp/schemaTmp.json /tmp/schema.json
         done
-
+ 
         check-jsonschema --output-format=text --schemafile /tmp/schema.json "/workspace/data/$(params.dataPath)"
