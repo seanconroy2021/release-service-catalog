@@ -20,6 +20,9 @@ Tekton release pipeline to interact with FBC Pipeline
 | taskGitRevision                 | The revision in the taskGitUrl repo to be used                                                           | No        | -                                                               |
 
 
+## Changes in 4.1.0
+* Add the `check-data-keys` task to validate the `data.json` file using the JSON schema.
+
 ## Changes in 4.0.4
 * The `sign-index-image` task now receives new mandatory parameter `releasePlanAdmissionPath`
 
