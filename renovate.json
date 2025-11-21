@@ -1,6 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "tekton": {
-    "schedule": ["* 0 * * *"]
+    "managerFilePatterns": [
+      "/\\.yaml$/",
+      "/\\.yml$/"
+    ],
+    "schedule": ["* 0 * * *"],
+    "packageRules": [
+      {
+        "matchDepTypes": ["tekton-step-image"],
+        "enabled": false
+      },
+      {
+        "matchDepTypes": ["tekton-step-image"],
+        "matchPackageNames": [
+          "quay.io/konflux-ci/release-service-utils"
+        ],
+        "enabled": true,
+        "groupName": "release-service-utils Tekton images"
+      }
+    ]
   }
 }
