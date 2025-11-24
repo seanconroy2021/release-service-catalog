@@ -71,7 +71,7 @@ spec:
         value: $(params.trustedArtifactsDebug)
   steps:
     - name: select-artifact
-      image: quay.io/konflux-ci/release-service-utils:0f82be4be43294b6a96846d87ef7f7c0b9e34267
+      image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:0f82be4be43294b6a96846d87ef7f7c0b9e34267
       computeResources:
         limits:
           memory: 64Mi
