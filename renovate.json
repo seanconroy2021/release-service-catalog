@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "branchConcurrentLimit": 20,
+  "prConcurrentLimit": 30,
+  "prHourlyLimit": 20,
   "tekton": {
     "managerFilePatterns": [
       "/\\.yaml$/",
@@ -11,13 +14,19 @@
         "matchDepTypes": ["tekton-step-image"],
         "enabled": false
       },
+
       {
+        "description": "Enable image updates for tasks/managed/* with per-task PRs",
         "matchDepTypes": ["tekton-step-image"],
-        "matchPackageNames": [
-          "quay.io/konflux-ci/release-service-utils"
+        "matchPackageNames": ["quay.io/konflux-ci/release-service-utils"],
+        "matchFileNames": [
+          "tasks/managed/**/*"
         ],
         "enabled": true,
-        "groupName": "release-service-utils Tekton images"
+        "prPriority": 10,
+        "additionalBranchPrefix": "{{{ replace '(/tests.*)?$' '' packageFileDir }}}/",
+        "groupName": "{{{ replace '(/tests.*)?$' '' packageFileDir }}}",
+        "prTitle": "Update utils for {{{ replace '^tasks/(managed|internal)/' '' (replace '(/tests.*)?$' '' packageFileDir) }}}"
       }
     ]
   }
