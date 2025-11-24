@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "branchConcurrentLimit": 20,
+  "prConcurrentLimit": 30,
+  "prHourlyLimit": 20,
   "tekton": {
     "managerFilePatterns": [
       "/\\.yaml$/",
@@ -12,12 +15,17 @@
         "enabled": false
       },
       {
+        "description": "Enable image updates for tekton tasks",
         "matchDepTypes": ["tekton-step-image"],
-        "matchPackageNames": [
-          "quay.io/konflux-ci/release-service-utils"
+        "matchPackageNames": ["quay.io/konflux-ci/release-service-utils"],
+        "matchFileNames": [
+          "tasks/managed/*/**",
+          "tasks/internal/*/**",
+          "tasks/collectors/*/**"
         ],
+        "additionalBranchPrefix": "{{{ replace '(/tests.*)?$' '' packageFileDir }}}/",
         "enabled": true,
-        "groupName": "release-service-utils Tekton images"
+        "prPriority": 10
       }
     ]
   }
