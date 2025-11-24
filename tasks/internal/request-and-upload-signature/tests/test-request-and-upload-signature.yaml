@@ -18,7 +18,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:82012e03002128f2a226acb23dc5c6fc1c37f5b6
             securityContext:
               runAsUser: 1001
             script: |
@@ -118,7 +118,7 @@ spec:
       taskSpec:
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:82012e03002128f2a226acb23dc5c6fc1c37f5b6
             securityContext:
               runAsUser: 1001
             script: |
