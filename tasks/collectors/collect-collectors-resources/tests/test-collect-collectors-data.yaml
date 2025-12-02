@@ -13,7 +13,7 @@ spec:
       taskSpec:
         steps:
           - name: create-crs
-            image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils@sha256:3af44ddca4b0db355193cbb755e2eea38ba4843a704c4c4207c490a3807e3a00
             script: |
               #!/usr/bin/env bash
               set -eux
@@ -101,7 +101,7 @@ spec:
           - name: data
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils@sha256:3af44ddca4b0db355193cbb755e2eea38ba4843a704c4c4207c490a3807e3a00
             script: |
               #!/usr/bin/env bash
               set -eux
@@ -124,7 +124,7 @@ spec:
       taskSpec:
         steps:
           - name: delete-crs
-            image: quay.io/konflux-ci/release-service-utils@sha256:29e097907ea816f9c75bf0c400ac67d2c0c60dcb6f3c3942bcfacff91a30715a:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils@sha256:3af44ddca4b0db355193cbb755e2eea38ba4843a704c4c4207c490a3807e3a00
             script: |
               #!/usr/bin/env sh
               set -eux
