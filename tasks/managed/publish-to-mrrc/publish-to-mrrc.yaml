@@ -130,7 +130,7 @@ spec:
         - name: sourceDataArtifact
           value: $(params.sourceDataArtifact)
     - name: prepare-repo
-      image: quay.io/konflux-ci/release-service-utils@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b02a8ddcd16113371a255fd1ef0a196399d300162
+      image: quay.io/konflux-ci/release-service-utils@sha256:441a4be09598989d7ccbe95cb428fb82eb1529944bbc2495a3e0f4dcbd8b5714
       computeResources:
         limits:
           memory: 256Mi
@@ -164,7 +164,7 @@ spec:
         - name: mrrc-workdir
           mountPath: "/workdir"
     - name: upload-maven-repo
-      image: quay.io/konflux-ci/charon@sha256:0d0e4a02e8c54fcc54bc359e960e0610c184f452d74b85bd8b2e95064ba1a119
+      image: quay.io/konflux-ci/charon@sha256:e0ef97dc107d44540aacdaa4a8b3164aca2503b08266eca9c099dbe074ebdf28
       computeResources:
         limits:
           memory: 512Mi
