@@ -83,7 +83,7 @@ spec:
         - name: sourceDataArtifact
           value: $(params.sourceDataArtifact)
     - name: upload-to-azure
-      image: mcr.microsoft.com/azure-cli@sha256:a4cc8fbb908dd2652db6caa4b9053af671d914ddf52aa81a766342603e21b507
+      image: mcr.microsoft.com/azure-cli@sha256:21a560c143a6c3bb1d6f5f5410b1bd406869954afc6eda2006f7bbf9180264c7
       computeResources:
         limits:
           memory: 512Mi
