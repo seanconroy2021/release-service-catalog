@@ -1,6 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "tekton": {
-    "schedule": ["* 0 * * *"]
+  "enabledManagers": ["kubernetes"],
+  "branchConcurrentLimit": 200,
+  "prConcurrentLimit": 300,
+  "prHourlyLimit": 200,
+  "kubernetes": {
+    "managerFilePatterns": ["/\\.yaml$/", "/\\.yml$/"],
+    "packageRules": [
+      {
+        "description": "Enable build-trusted-artifacts image in StepActions",
+        "matchDatasources": ["docker"],
+        "matchFileNames": ["stepactions/**"],
+        "matchPackageNames": ["quay.io/redhat-appstudio/build-trusted-artifacts"],
+        "enabled": true
+      }
+    ]
   }
 }
