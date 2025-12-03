@@ -51,7 +51,7 @@ spec:
             runAsUser: 1001
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4be633d51cd41d73e4b3310face21bb980af7a662f
             script: |
               set -eux
 
@@ -160,7 +160,7 @@ spec:
         - name: pushType
           value: "promote"
         - name: pipelineImage
-          value: "quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f"
+          value: "quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4be633d51cd41d73e4b3310face21bb980af7a662f"
         - name: ociStorage
           value: $(params.ociStorage)
         - name: orasOptions
@@ -224,7 +224,7 @@ spec:
               - name: sourceDataArtifact
                 value: $(params.sourceDataArtifact)
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:e633d51cd41d73e4b3310face21bb980af7a662f
+            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4be633d51cd41d73e4b3310face21bb980af7a662f
             script: |
               #!/usr/bin/env bash
               set -euo pipefail

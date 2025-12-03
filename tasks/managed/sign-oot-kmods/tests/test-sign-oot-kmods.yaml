@@ -109,7 +109,7 @@ spec:
               - name: sourceDataArtifact
                 value: $(params.sourceDataArtifact)
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:02a8ddcd16113371a255fd1ef0a196399d300162
+            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b02a8ddcd16113371a255fd1ef0a196399d300162
             script: |
               #!/usr/bin/env bash
               set -eux

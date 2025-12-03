@@ -20,7 +20,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6
             securityContext:
               runAsUser: 1001
             script: |
@@ -81,7 +81,7 @@ spec:
         name: request-and-upload-signature
       params:
         - name: pipeline_image
-          value: "quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6"
+          value: "quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6"
         - name: manifest_digests
           value: "sha256:0000"
         - name: references
@@ -132,7 +132,7 @@ spec:
           - name: data
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6
             securityContext:
               runAsUser: 1001
             script: |

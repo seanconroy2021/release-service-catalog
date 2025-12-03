@@ -78,7 +78,7 @@ spec:
         readOnly: true
   steps:
     - name: perform-updates
-      image: quay.io/konflux-ci/release-service-utils@sha256:504e93b6435a6f10f825bacdbac9ac3da9be4cdfffdae10c0607cb8362928e50
+      image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:504e93b6435a6f10f825bacdbac9ac3da9be4cdfffdae10c0607cb8362928e50
       securityContext:
         runAsUser: 1001
       computeResources:
