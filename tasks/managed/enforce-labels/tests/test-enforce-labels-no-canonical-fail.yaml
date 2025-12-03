@@ -50,7 +50,7 @@ spec:
               value: "$(params.trustedArtifactsDebug)"
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:1d0f44656336b012945d5f4af5e289b0dfe176ba
+            image: quay.io/konflux-ci/release-service-utils@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b1d0f44656336b012945d5f4af5e289b0dfe176ba
             script: |
               #!/usr/bin/env bash
               set -eux
