@@ -634,7 +634,7 @@ spec:
       serviceAccountName: trust-manager
       initContainers:
         - name: cert-manager-package-debian
-          image: "quay.io/jetstack/cert-manager-package-debian:20210119.0"
+          image: "quay.io/jetstack/cert-manager-package-debian:20210119.2"
           imagePullPolicy: IfNotPresent
           args:
             - "/copyandmaybepause"
