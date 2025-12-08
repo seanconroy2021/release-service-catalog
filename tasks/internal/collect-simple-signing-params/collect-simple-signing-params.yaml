@@ -68,7 +68,7 @@ spec:
       runAsUser: 1001
   steps:
     - name: collect-simple-signing-params
-      image: quay.io/konflux-ci/release-service-utils:82012e03002128f2a226acb23dc5c6fc1c37f5b6
+      image: quay.io/konflux-ci/release-service-utils@sha256:345e74f6d57101b7b2cf9b71ed2d0753fbe1a3c3d7214a25cd71b7c1f41426d982012e03002128f2a226acb23dc5c6fc1c37f5b6
       computeResources:
         limits:
           memory: 64Mi
