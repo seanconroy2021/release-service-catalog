@@ -19,7 +19,7 @@ spec:
           - name: pipeline
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:92752d8e404c75b012fff9d3c8c3f308c0df126807c19997f384628c8a68fa39
             securityContext:
               runAsUser: 1001
             script: |
@@ -89,7 +89,7 @@ spec:
             type: string
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:92752d8e404c75b012fff9d3c8c3f308c0df126807c19997f384628c8a68fa39
             securityContext:
               runAsUser: 1001
             script: |
@@ -139,7 +139,7 @@ spec:
             type: string
         steps:
           - name: delete-crs
-            image: quay.io/konflux-ci/release-service-utils@sha256:74b1c441ec73b6bbb799305a3cf2929cbc91ce2e9f5fb830765646ca89af67ac@sha256:60ad36876afdb0e50ec14ad8dc20d736ff0a7e93344d7a4cc2a53bf8dbaafc4b82012e03002128f2a226acb23dc5c6fc1c37f5b6
+            image: quay.io/konflux-ci/release-service-utils@sha256:92752d8e404c75b012fff9d3c8c3f308c0df126807c19997f384628c8a68fa39
             securityContext:
               runAsUser: 1001
             script: |
