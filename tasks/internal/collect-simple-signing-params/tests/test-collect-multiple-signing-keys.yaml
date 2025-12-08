@@ -19,7 +19,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:a5072c6da901bc9cf4d767da82e700784c7df981
+            image: quay.io/konflux-ci/release-service-utils:a5072c6da901bc9cf4d767da82e700784c7df981@sha256:280a5a7e1c9279d8cf864333b8c3958e98d163df3dfc84441fb71fefdb516f00
             script: |
               #!/usr/bin/env sh
               set -eux
@@ -59,7 +59,7 @@ spec:
             type: string
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:a5072c6da901bc9cf4d767da82e700784c7df981
+            image: quay.io/konflux-ci/release-service-utils:a5072c6da901bc9cf4d767da82e700784c7df981@sha256:280a5a7e1c9279d8cf864333b8c3958e98d163df3dfc84441fb71fefdb516f00
             env:
               - name: "sig_key_names"
                 value: '$(params.sig_key_names)'

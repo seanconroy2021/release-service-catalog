@@ -148,7 +148,7 @@ spec:
       runAsUser: 1001
   steps:
     - name: collect-data
-      image: quay.io/konflux-ci/release-service-utils:02a8ddcd16113371a255fd1ef0a196399d300162
+      image: quay.io/konflux-ci/release-service-utils:02a8ddcd16113371a255fd1ef0a196399d300162@sha256:4088080ff19091e2b8f85b63d1e966f40912206c0e39d15b4046ecd36662eb12
       computeResources:
         limits:
           memory: 64Mi
@@ -308,7 +308,7 @@ spec:
         echo -n "${SNAPSHOT_NAMESPACE}" | tee "$(results.snapshotNamespace.path)"
 
     - name: check-data-key-sources
-      image: quay.io/konflux-ci/release-service-utils:02a8ddcd16113371a255fd1ef0a196399d300162
+      image: quay.io/konflux-ci/release-service-utils:02a8ddcd16113371a255fd1ef0a196399d300162@sha256:4088080ff19091e2b8f85b63d1e966f40912206c0e39d15b4046ecd36662eb12
       computeResources:
         limits:
           memory: 32Mi

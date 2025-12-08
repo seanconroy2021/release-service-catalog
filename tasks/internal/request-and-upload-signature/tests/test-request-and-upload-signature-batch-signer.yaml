@@ -18,7 +18,7 @@ spec:
           - name: data
         steps:
           - name: setup-values
-            image: quay.io/konflux-ci/release-service-utils:34dd4b265f02b0890efdbc7b1be4d1187d8881f0
+            image: quay.io/konflux-ci/release-service-utils:34dd4b265f02b0890efdbc7b1be4d1187d8881f0@sha256:327d8a03cc6701998534a26b6cbb69698395e6b1b7bb24f9cf90e9cb2fe766b9
             script: |
               #!/usr/bin/env bash
               set -eux
@@ -190,7 +190,7 @@ spec:
       taskSpec:
         steps:
           - name: check-result
-            image: quay.io/konflux-ci/release-service-utils:3729a54989514da6a777579feabbd9b346c73551
+            image: quay.io/konflux-ci/release-service-utils:3729a54989514da6a777579feabbd9b346c73551@sha256:f7037890d9b8ff677ab660a5019bd15dac0d726aa12b6ccd830e19e6fa20f72c
             script: |
               #!/usr/bin/env bash
               set -eux
