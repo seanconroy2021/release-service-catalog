@@ -51,7 +51,7 @@ spec:
               value: "$(params.trustedArtifactsDebug)"
         steps:
           - name: create-crs
-            image: quay.io/konflux-ci/release-service-utils@sha256:345e74f6d57101b7b2cf9b71ed2d0753fbe1a3c3d7214a25cd71b7c1f41426d902a8ddcd16113371a255fd1ef0a196399d300162
+            image: quay.io/konflux-ci/release-service-utils@sha256:92752d8e404c75b012fff9d3c8c3f308c0df126807c19997f384628c8a68fa39
             script: |
               #!/usr/bin/env bash
               set -eux
