@@ -164,7 +164,7 @@ spec:
         - name: mrrc-workdir
           mountPath: "/workdir"
     - name: upload-maven-repo
-      image: quay.io/konflux-ci/charon@sha256:0d0e4a02e8c54fcc54bc359e960e0610c184f452d74b85bd8b2e95064ba1a119
+      image: quay.io/konflux-ci/charon@sha256:2b11516e682a2c985612fc64a3b833e05d9f3efb35793db6c29f4a81545c74bc
       computeResources:
         limits:
           memory: 512Mi
