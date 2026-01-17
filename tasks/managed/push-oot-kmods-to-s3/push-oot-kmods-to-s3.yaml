@@ -83,7 +83,7 @@ spec:
         - name: sourceDataArtifact
           value: $(params.sourceDataArtifact)
     - name: upload-to-s3
-      image: amazon/aws-cli@sha256:3be2a248274c72a6f76fa0ac042aec84f4ade6ff7f38894df31732da4005294d
+      image: amazon/aws-cli@sha256:9963fe890d07518128b5dab9e4b7231bbf334aed52a66a93bfbaac0249b6bb59
       computeResources:
         limits:
           memory: 512Mi
