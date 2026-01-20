@@ -115,7 +115,7 @@ spec:
         - name: sourceDataArtifact
           value: $(params.sourceDataArtifact)
     - name: update-trusted-tasks
-      image: quay.io/konflux-ci/appstudio-utils@sha256:a975a1a2825a36af8ec445cb83cff7480587e5b0650ce131bf8af4df31483336
+      image: quay.io/konflux-ci/appstudio-utils@sha256:98082f1c97b3f6183ab10fcd1fd96f44a5a5c134be716b67b2f4da495d196d4a
       computeResources:
         limits:
           memory: 1Gi
