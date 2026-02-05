@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "rebaseWhen": "behind-base-branch",
   "tekton": {
-    "schedule": ["* 0-4 * * *"],
+    "schedule": ["* * * * *"],
     "managerFilePatterns": ["/\\.yaml$/", "/\\.yml$/"],
     "ignorePaths": [],
     "includePaths": [
@@ -11,17 +11,25 @@
       "tasks/**",
       "pipelines/**"
     ],
+    "pinDigests": true,
     "packageRules": [
       {
         "matchPackageNames": ["*"],
         "enabled": false
       },
       {
-        "matchPackageNames": [
-          "quay.io/konflux-ci/release-service-utils",
-          "quay.io/conforma/cli"
-        ],
-        "enabled": true
+        "matchPackageNames": ["quay.io/konflux-ci/release-service-utils"],
+        "groupName": "release-service-utils",
+        "enabled": true,
+        "pinDigests": true,
+        "followTag": "latest"
+      },
+      {
+        "matchPackageNames": ["quay.io/conforma/cli"],
+        "groupName": "conforma-cli",
+        "enabled": true,
+        "pinDigests": true,
+        "followTag": "latest"
       }
     ]
   }
